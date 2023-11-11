@@ -19,6 +19,13 @@
       </svg>
     </div>
 
+    <p
+      v-else-if="$state.state === 'failed'"
+      class="mt-4 p-4 text-red font-medium uppercase border-red border-2 rounded-2xl"
+    >
+      The service statuses could not be loaded.
+    </p>
+
     <table v-else-if="$state.state === 'loaded'" class="shadow-2xl">
       <thead>
         <tr class="bg-green divide-x divide-cold-gray text-white uppercase">

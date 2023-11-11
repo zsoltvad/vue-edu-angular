@@ -54,6 +54,31 @@ describe('StatusPage', () => {
     })
   })
 
+  describe('in failed state', () => {
+    beforeEach(() => {
+      wrapper = mount(StatusPage, {
+        global: {
+          plugins: [
+            createMetaManager(),
+            createTestingPinia({
+              createSpy: vi.fn,
+              initialState: {
+                status: {
+                  state: 'failed'
+                }
+              }
+            })
+          ]
+        }
+      })
+    })
+
+    it('render the error message', () => {
+      const errorMessage = wrapper.find('p')
+      expect(errorMessage.text()).toBe('The service statuses could not be loaded.')
+    })
+  })
+
   describe('in loaded state', () => {
     beforeEach(() => {
       wrapper = mount(StatusPage, {
