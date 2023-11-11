@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 
 import { LOGIN_PATH } from '@/modules/login/constants/route'
-import AuthenticationService from '@/services/authentication/AuthenticationService'
+import AuthenticationService from '@/services/AuthenticationService/AuthenticationService'
 
 export const isAuthenticatedGuard = () => {
   const authenticationService = inject<AuthenticationService>(AuthenticationService.SERVICE_NAME)!

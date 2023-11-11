@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { STATUS_PATH } from '@/modules/status/constants/route'
-import AuthenticationService from '@/services/authentication/AuthenticationService'
+import AuthenticationService from '@/services/AuthenticationService/AuthenticationService'
 import { isNotAuthenticatedGuard } from './isNotAuthenticatedGuard'
 
 let isAuthenticated = false

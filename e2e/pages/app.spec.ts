@@ -6,7 +6,7 @@ test.describe('App', () => {
   })
 
   test('should have the appropriate document title', async ({ page }) => {
-    await expect(page).toHaveTitle('Vue3 workshop @ 2023')
+    await expect(page).toHaveTitle('Login page')
   })
 
   test('should display the page title', async ({ page }) => {

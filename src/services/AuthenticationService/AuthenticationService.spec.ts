@@ -12,17 +12,11 @@ const mockRouter: Router = {
   push: mockPush
 } as any
 
-vi.mock('vue-router', () => ({
-  useRouter: () => {
-    return mockRouter
-  }
-}))
-
 describe('AuthenticationService', () => {
   let authenticationService: AuthenticationService
 
   beforeEach(() => {
-    authenticationService = new AuthenticationService()
+    authenticationService = new AuthenticationService(mockRouter)
   })
 
   afterEach(() => {

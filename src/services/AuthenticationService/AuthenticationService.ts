@@ -1,4 +1,4 @@
-import { useRouter, type Router } from 'vue-router'
+import type { Router } from 'vue-router'
 
 import { STATUS_PATH } from '@/modules/status/constants/route'
 
@@ -8,7 +8,7 @@ export const LOCAL_STORAGE_TOKEN_VALUE = '123'
 export default class AuthenticationService {
   static readonly SERVICE_NAME = 'AuthenticationService'
 
-  private readonly router: Router = useRouter()
+  constructor(private readonly router: Router) {}
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)
