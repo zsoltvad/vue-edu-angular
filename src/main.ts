@@ -1,7 +1,15 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
 
-import { AppModule } from './app/app.module';
+import App from './App.vue'
+import router from './router'
+import AuthenticationService from './services/authentication/AuthenticationService'
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.provide<AuthenticationService>(AuthenticationService.SERVICE_NAME, new AuthenticationService())
+
+app.mount('#app')
