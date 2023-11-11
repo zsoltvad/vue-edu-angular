@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
-
-import { APP_TITLE } from '@/constants/title'
-</script>
-
 <template>
   <metainfo>
     <template v-slot:title="{ content }">{{ content ?? APP_TITLE }}</template>
@@ -15,3 +9,9 @@ import { APP_TITLE } from '@/constants/title'
     <RouterView />
   </div>
 </template>
+
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+
+import { APP_TITLE } from '@/constants/title'
+</script>

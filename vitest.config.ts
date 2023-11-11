@@ -16,6 +16,7 @@ export default mergeConfig(
         exclude: [
           'src/App.vue',
           'src/main.ts',
+          'src/modules/status/interfaces/*',
           'src/router/index.ts'
         ],
         all: true,
