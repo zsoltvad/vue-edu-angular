@@ -6,6 +6,6 @@ import PageNotFoundPage from './PageNotFoundView.vue'
 describe('PageNotFoundPage', () => {
   it('renders properly', () => {
     const wrapper = mount(PageNotFoundPage)
-    expect(wrapper.text()).toContain('Page Not Found')
+    expect(wrapper.find('h2').text()).toContain('404')
   })
 })
