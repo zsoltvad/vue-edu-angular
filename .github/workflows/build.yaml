@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '>=20.9.0'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Check formatting
+        run: npm run format
+      - name: Lint
+        run: npm run lint
+      - name: Execute unit tests
+        run: npm run test:unit
+      - name: Build project
+        run: npm run build
+      - name: Execute E2E tests
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: |
+            coverage
+            playwright-report
+            test-results
+          retention-days: 30
