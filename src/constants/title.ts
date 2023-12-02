@@ -1,0 +1,1 @@
+export const TITLE = 'Vue3 workshop @ 2023'
